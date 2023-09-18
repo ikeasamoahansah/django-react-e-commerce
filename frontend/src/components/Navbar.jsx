@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {Helmet} from 'react-helmet';
 
 class Navbar extends Component {
 
@@ -8,10 +9,14 @@ class Navbar extends Component {
 
     render() {
         return (
+            <>
             <nav className="bg-gray-100">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between">
-                    <div className="flex space-x-4">
+                        <div className="hidden md:flex items-center space-x-4">
+                            <a href="#" className="text-gray-700 hover:text-gray-900">Products</a>
+                            <a href="#" className="text-gray-700 hover:text-gray-900">Review</a>
+                        </div>
                         <div>
                             <a href="#" className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                                 <svg className="h-6 w-6 mr-2 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -20,18 +25,30 @@ class Navbar extends Component {
                                 <span className="font-bold">Instashop</span>
                             </a>
                         </div>
-                        <div className="flex items-center space-x-4">
-                            <a href="#" className="text-gray-700 hover:text-gray-900">Features</a>
-                            <a href="#" className="text-gray-700 hover:text-gray-900">Pricing</a>
-                        </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
+                    <div className="hidden md:flex items-center space-x-3">
                         <a href="#" className="py-1 px-3 text-gray-700" >Log in</a>
-                        <a href="#" className="py-1 px-3 bg-blue-400 text-blue-800" >Sign up</a>
+                        <a href="#" className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a>
+                    </div>
+
+                    <div className="md:hidden flex items-center">
+                        <button className="mobile-menu-button" >
+                            <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <div className="mobile-menu hidden md:hidden">
+                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >Products</a>
+                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >Review</a>
+            </div>
             </nav>
+            <Helmet>
+                <script src="src/js/navbar.js"></script>
+            </Helmet>
+            </>
         );
     }
 
