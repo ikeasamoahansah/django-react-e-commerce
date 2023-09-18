@@ -10,12 +10,12 @@ class Navbar extends Component {
     render() {
         return (
             <>
-            <nav className="bg-gray-100 shadow">
+            <nav className="bg-white-100 shadow">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between">
                         <div className="hidden md:flex items-center space-x-4">
-                            <a href="#" className="text-gray-700 hover:text-gray-900">Products</a>
-                            <a href="#" className="text-gray-700 hover:text-gray-900">Review</a>
+                            <a href="#" className="text-gray-700 hover:text-gray-900">Trendy</a>
+                            <a href="#" className="text-gray-700 hover:text-gray-900">New Arrivals</a>
                         </div>
                         <div>
                             <a href="#" className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
