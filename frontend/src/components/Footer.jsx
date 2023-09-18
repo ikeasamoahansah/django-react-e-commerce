@@ -8,9 +8,9 @@ class Footer extends Component {
 
     render() {
         return (
-            <section>
+            <footer>
                 
-            </section>
+            </footer>
         );
     }
 

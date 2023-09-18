@@ -10,7 +10,7 @@ class Navbar extends Component {
     render() {
         return (
             <>
-            <nav className="bg-gray-100">
+            <nav className="bg-gray-100 shadow">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between">
                         <div className="hidden md:flex items-center space-x-4">
