@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Footer extends Component {
 
@@ -17,7 +18,7 @@ class Footer extends Component {
                         <a href="" className="text-blue-300 hover:text-gray-200 transition duration-300">icon</a>
                     </div>
                     <div className="flex justify-center space-x-6 py-1">
-                        <a href="#" className="text-blue-300 hover:text-gray-200 transition duration-300">Home</a>
+                        <Link to="/"><a className="text-blue-300 hover:text-gray-200 transition duration-300">Home</a></Link>
                         <a href="#" className="text-blue-300 hover:text-gray-200 transition duration-300">Products</a>
                         <a href="#" className="text-blue-300 hover:text-gray-200 transition duration-300">Contact us</a>
                         <a href="#" className="text-blue-300 hover:text-gray-200 transition duration-300">About us</a>

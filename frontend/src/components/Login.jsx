@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Login extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ class Login extends Component{
                     <h1 className="text-3xl font-extrabold">Sign in to your account</h1>
                     <p className="text-center">
                         or 
-                        <a href="#" className="text-blue-400 border-b border-blue-400"> register your free account</a>
+                        <Link to="/signup"><a className="text-blue-400 border-b border-blue-400"> register your free account</a></Link>
                     </p>
                 </div>
                 <div className="max-w-md w-full mx-auto bg-gray-200 rounded-lg p-7 space-y-3">

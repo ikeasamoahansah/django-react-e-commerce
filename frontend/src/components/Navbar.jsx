@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import {Helmet} from 'react-helmet';
+import {Link} from 'react-router-dom';
 
 class Navbar extends Component {
 
@@ -26,8 +27,8 @@ class Navbar extends Component {
                             </a>
                         </div>
                     <div className="hidden md:flex items-center space-x-3">
-                        <a href="#" className="py-1 px-3 text-gray-700" >Log in</a>
-                        <a href="#" className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a>
+                        <Link to="/login"><a className="py-1 px-3 text-gray-700" >Log in</a></Link>
+                        <Link to="/signup"><a className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a></Link>
                     </div>
 
                     <div className="md:hidden flex items-center">
