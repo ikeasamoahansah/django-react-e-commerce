@@ -27,7 +27,7 @@ class Signup extends Component{
                     </div>
                     <div className="flex flex-col">
                         <label className="mb-1 text-sm" htmlFor="password">Password</label>
-                        <input className="border rounded-md px-3 py-2" type="password" name="password" />
+                        <input className="border rounded-md px-3 py-2 mb-1" type="password" name="password" />
                     </div>
                     <div>
                         <button className="w-full rounded-md bg-blue-400 text-white py-2">Sign in</button>

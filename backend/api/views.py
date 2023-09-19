@@ -1,6 +1,7 @@
 from .models import *
 from .serializers import *
 from django.http import Http404
+from django.contrib.auth import logout
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -9,6 +10,7 @@ from rest_framework import status
 from .permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework import generics
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 
 @api_view(['GET'])
@@ -24,6 +26,18 @@ class RegisterUserView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = RegisterUserSerializer
+
+
+class MyObtainTokenPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
+
+
+
+class UserLogoutView(APIView):
+    def post(self, request):
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
 
 
 class UsersList(APIView):

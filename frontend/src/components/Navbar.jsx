@@ -1,14 +1,20 @@
 import {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 class Navbar extends Component {
+
+    static contextType = AuthContext;
 
     constructor(props) {
         super(props);
     }
 
     render() {
+
+        const {user} = this.context;
+
         return (
             <>
             <nav className="bg-white-100 shadow">
@@ -27,7 +33,11 @@ class Navbar extends Component {
                             </a>
                         </div>
                     <div className="hidden md:flex items-center space-x-3">
-                        <Link to="/login"><a className="py-1 px-3 text-gray-700" >Log in</a></Link>
+                        {user ? (
+                            <Link to="/login"><a className="py-1 px-3 text-gray-700" >{user.username}</a></Link>
+                        ): (
+                            <Link to="/login"><a className="py-1 px-3 text-gray-700" >Log in</a></Link>
+                        )}
                         <Link to="/signup"><a className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a></Link>
                     </div>
 

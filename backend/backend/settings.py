@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -87,10 +87,6 @@ DATABASES = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -111,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'api.CustomUser'
+CSRF_COOKIE_DOMAIN = "http://localhost:5173"
+SESSION_COOKIE_DOMAIN = "http://localhost:5173"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -148,3 +146,5 @@ EMAIL_USE_TLS = True  # Set to False if your email server doesn't use TLS
 EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email host for gmail -> 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default="my_default")
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default="default")
+
+CORS_ORIGIN_ALLOW_ALL = True
