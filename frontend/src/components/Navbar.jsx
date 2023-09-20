@@ -13,7 +13,7 @@ class Navbar extends Component {
 
     render() {
 
-        const {user} = this.context;
+        const {user, logoutUser} = this.context;
 
         return (
             <>
@@ -32,14 +32,17 @@ class Navbar extends Component {
                                 <span className="font-bold">Instashop</span>
                             </a>
                         </div>
-                    <div className="hidden md:flex items-center space-x-3">
-                        {user ? (
-                            <Link to="/login"><a className="py-1 px-3 text-gray-700" >{user.username}</a></Link>
-                        ): (
+                    {user ? (
+                        <div className="hidden md:flex items-center space-x-3">
+                            <Link to="/"><a className="py-1 px-3 text-gray-700" >User: {user.username}</a></Link>
+                            <button type='submit' onClick={logoutUser} className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Logout</button>
+                        </div>
+                    ): (
+                        <div className="hidden md:flex items-center space-x-3">
                             <Link to="/login"><a className="py-1 px-3 text-gray-700" >Log in</a></Link>
-                        )}
-                        <Link to="/signup"><a className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a></Link>
-                    </div>
+                            <Link to="/signup"><a className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Sign up</a></Link>
+                        </div>
+                    )}
 
                     <div className="md:hidden flex items-center">
                         <button className="mobile-menu-button" >
@@ -52,8 +55,8 @@ class Navbar extends Component {
             </div>
 
             <div className="mobile-menu hidden md:hidden">
-                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >Products</a>
-                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >Review</a>
+                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >Trendy</a>
+                <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200" >New Arrivals</a>
             </div>
             </nav>
             <Helmet>
