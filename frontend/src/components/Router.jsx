@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "./HomePage";
 import Signup from "./Signup";
 import ErrorPage from "./ErrorPage";
+import Dashboard from "./Dashboard";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -20,6 +21,11 @@ const Router = () => {
       path: "/signup",
       element: <Signup />,
       errorElement: <ErrorPage />,
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard/>,
+      errorElement: <ErrorPage/>,
     },
   ]);
 
