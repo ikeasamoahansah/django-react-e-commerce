@@ -1,35 +1,30 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "../App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/HomePage";
 import Signup from "../pages/Signup";
 import ErrorPage from "../pages/ErrorPage";
 import Dashboard from "../pages/Dashboard";
+import Products from "../pages/ProductsPage";
+import Login from "../pages/Login";
+import { AuthProvider } from "../context/AuthContext";
+import Navbar from "./Navbar";
 
 const Router = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/login",
-      element: <App />,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-      errorElement: <ErrorPage />,
-    },
-    {
-      path: "/dashboard",
-      element: <Dashboard/>,
-      errorElement: <ErrorPage/>,
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+            <Route path="/" element={<Navbar />}>
+              <Route index element={<Home />} />
+              <Route path="signup" element={<Signup />} />
+              <Route path="login" element={<Login />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="products" element={<Products />} />
+              <Route path="*" element={<ErrorPage />} />
+            </Route>
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
 };
 
 export default Router;
