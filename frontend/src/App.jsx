@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import {AuthProvider} from './context/AuthContext'
-import Login from './components/Login';
+import Login from './pages/Login';
 
 function App() {
 
