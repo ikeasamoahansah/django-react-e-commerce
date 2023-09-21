@@ -46,15 +46,11 @@ class Products extends Component{
         }
 
         return (
-            <>
-            <h1>Online Store</h1>
-            <div className="">
-                <h1>Product List</h1>
+            <div className="h-screen bg-gray-100 flex items-center justify-center">
                 {products.map((product, index) => (
                     <Product key={index} product={product} />
                 ))}
             </div>
-            </>
         )
     }
 }
