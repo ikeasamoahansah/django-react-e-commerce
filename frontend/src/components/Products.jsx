@@ -1,4 +1,5 @@
 import { Component } from "react";
+import {Link} from "react-router-dom";
 
 class Product extends Component {
     constructor(props) {
@@ -11,10 +12,12 @@ class Product extends Component {
 
         return (
             <div className="card">
+                <Link to={product.id}>
                 <img 
                 className='w-full h-full object-cover' 
                 src={`http://127.0.0.1:8000${product.image}`} 
                 alt="image" />
+                </Link>
                 
                 
                 <div className="p-5 flex flex-col gap-3">

@@ -23,37 +23,6 @@ class Login extends Component{
         const {name, value} = e.target;
         this.setState({ [name]: value })
     };
-
-
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    
-    //     // Create a JSON object with the login data
-    //     const loginData = {
-    //       email: this.state.email,
-    //       password: this.state.password,
-    //     };
-    
-    //     // Get the CSRF token from a cookie (you may need to adjust this based on your setup)
-    //     const csrfToken = Cookies.get('csrftoken');
-    //     const url = 'http://127.0.0.1:8000/api/login/'
-    
-    //     // Set the headers including the CSRF token
-    //     fetch(url, {
-    //         method: "POST",
-    //         headers:{
-    //             'Content-Type': 'application/json',
-    //             'X-CSRFToken': csrfToken,
-    //         },
-    //         body: JSON.stringify(loginData)
-    //     }).then((res) => {
-    //         console.log(res);
-    //         alert("login successful");
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     })
-        
-    // };
  
 
     render(){
@@ -66,7 +35,7 @@ class Login extends Component{
                     <h1 className="text-3xl font-extrabold">Sign in to your account</h1>
                     <p className="text-center">
                         or 
-                        <Link to="/signup"><a className="text-blue-400 border-b border-blue-400"> register your free account</a></Link>
+                        <Link to="/signup" className="text-blue-400 border-b border-blue-400"> register your free account</Link>
                     </p>
                 </div>
                 <div className="max-w-md w-full mx-auto bg-gray-200 rounded-lg p-7 space-y-3">
@@ -89,7 +58,7 @@ class Login extends Component{
                             <label htmlFor="rememberme">Remember Me</label>
                         </div>
                         <div>
-                            <a href="#" className="text-blue-400">Forgot Password?</a>
+                            <Link to="/" className="text-blue-400">Forgot Password?</Link>
                         </div>
                     </div>
                     <div></div>
