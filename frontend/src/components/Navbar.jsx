@@ -35,7 +35,7 @@ class Navbar extends Component {
                         </div>
                     {user ? (
                         <div className="hidden md:flex items-center space-x-3">
-                            <Link to="/" className="py-1 px-3 text-gray-700">User: {user.username}</Link>
+                            <Link to="/dashboard" className="py-1 px-3 text-gray-700">User: {user.username}</Link>
                             <button type='submit' onClick={logoutUser} className="py-1 px-3 bg-blue-400 hover:bg-blue-300 text-blue-800 hover:text-blue-900 rounded transition duration-300" >Logout</button>
                         </div>
                     ): (

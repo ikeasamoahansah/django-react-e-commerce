@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Product from '../components/Products';
 
 class Products extends Component{
     constructor(props){
@@ -17,32 +18,42 @@ class Products extends Component{
     }
 
 
-    getProducts = async () => {
+    getProducts = () => {
         const url = "http://127.0.0.1:8000/api/products/"
 
-        const response = await fetch(url, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
+        fetch(url)
+        .then((response) => {
+            if (response.status >= 400) {
+                throw new Error("server error");
             }
+            return response.json()
         })
-        if (response.status === 200) {
-            console.log(response.json())
-        } else {
-            alert("Bad request")
-        }
+        .then((response) => {
+            this.setState({products: response})
+        })
+        .catch((error) => {
+            console.log("Error fetching products:", error);
+        })
+        .finally(() => this.setState({loading: false}));
     }
 
     render() {
 
-        const {loading} = this.state;
+        const {loading, products} = this.state;
 
         if (loading) {
-            <p>Page is loading....</p>
+            return <p>Page is loading....</p>
         }
 
         return (
             <>
+            <h1>Online Store</h1>
+            <div className="">
+                <h1>Product List</h1>
+                {products.map((product, index) => (
+                    <Product key={index} product={product} />
+                ))}
+            </div>
             </>
         )
     }
