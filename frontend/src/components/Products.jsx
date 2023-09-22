@@ -12,7 +12,7 @@ class Product extends Component {
 
         return (
             <div className="card">
-                <Link to={product.id}>
+                <Link to={`/products/${product.id}`}>
                 <img 
                 className='w-full h-full object-cover' 
                 src={`http://127.0.0.1:8000${product.image}`} 

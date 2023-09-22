@@ -16,13 +16,13 @@ class Dashboard extends Component {
 
         const {user} = this.context;
 
-        if (user){
+        if (user === null){
+            <Navigate to="/login" replace={true} />
+        } else {
             return (
                 <>
                 </>
             )
-        } else {
-            <Navigate to="/login" replace={true} />
         }
     }
 }

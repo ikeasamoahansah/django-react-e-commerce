@@ -66,9 +66,11 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
 
+    user = serializers.CharField()
+
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'image', 'created_at']
+        fields = ['id', 'name', 'user', 'price', 'image', 'created_at']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
