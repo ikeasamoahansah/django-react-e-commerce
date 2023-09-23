@@ -20,14 +20,20 @@ export default class AddProductPage extends Component {
     }
 
     handleChange = (e) => {
-        const {name, value} = e.target;
-        this.setState({ [name]: value })
+    const { name, value, type } = e.target;
+    if (type === 'file') {
+      // Set the image file to the state
+      this.setState({ [name]: e.target.files[0] });
+    } else {
+      // For other inputs, handle normally
+      this.setState({ [name]: value });
     }
+  };
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const {authTokens} = this.context;
+        const {authTokens, user} = this.context;
 
         // const postData = {
         //     user: authTokens.access,
@@ -38,7 +44,7 @@ export default class AddProductPage extends Component {
         // };
 
         let formData = new FormData()
-        formData.append("user", authTokens.access);
+        formData.append("user", JSON.stringify(user));
         formData.append("name", this.state.name);
         formData.append("image", this.state.image);
         formData.append("description", this.state.description);
@@ -51,7 +57,7 @@ export default class AddProductPage extends Component {
             method: "POST",
             headers:{
                 'X-CSRFToken': csrfToken,
-                'Authorization': `Bearer ${authTokens.access}`,
+                'Authorization': `Token ${authTokens.access}`,
             },
             body: formData
         })
@@ -72,14 +78,14 @@ export default class AddProductPage extends Component {
                     <h1 className="text-3xl font-extrabold">Post a new Product</h1>
                 </div>
                 <div className="max-w-md w-full mx-auto bg-gray-200 rounded-lg p-7 space-y-3">
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit} encType="multipart/form-data">
                         <div className="flex flex-col">
                             <label className="mb-1 text-sm" htmlFor="name">Title</label>
                             <input className="border rounded-md px-3 py-2" type="text" name="name" placeholder="A catchy title" value={this.state.name} onChange={this.handleChange} required/>
                         </div>
                         <div className="flex flex-col">
                             <label className="mb-1 text-sm" htmlFor="image">Image</label>
-                            <input className="border rounded-md px-3 py-2" type="file" accept="image/*"  name="image" value={this.state.image} onChange={this.handleChange} required/>
+                            <input className="border rounded-md px-3 py-2" type="file" accept="image/*"  name="image" onChange={this.handleChange} required/>
                         </div>
                         <div className="flex flex-col">
                             <label className="mb-1 text-sm" htmlFor="description">Description</label>
