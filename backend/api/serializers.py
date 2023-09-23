@@ -67,6 +67,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
 
     user = serializers.CharField()
+    image = serializers.ImageField(use_url=True, required=True)
 
     class Meta:
         model = Product

@@ -2,7 +2,6 @@ import {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {Outlet, Link} from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-import Footer from './Footer';
 
 class Navbar extends Component {
 
