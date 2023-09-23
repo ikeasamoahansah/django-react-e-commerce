@@ -79,7 +79,7 @@ export default class AddProductPage extends Component {
                         </div>
                         <div className="flex flex-col">
                             <label className="mb-1 text-sm" htmlFor="image">Image</label>
-                            <input className="border rounded-md px-3 py-2" type="file" accept="image/jpeg,image/png,image/gif"  name="image" value={this.state.image} onChange={this.handleChange} required/>
+                            <input className="border rounded-md px-3 py-2" type="file" accept="image/*"  name="image" value={this.state.image} onChange={this.handleChange} required/>
                         </div>
                         <div className="flex flex-col">
                             <label className="mb-1 text-sm" htmlFor="description">Description</label>
