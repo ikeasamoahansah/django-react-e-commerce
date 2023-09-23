@@ -10,9 +10,9 @@ export default class AddProductPage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: null,
-            image: null,
-            description: null,
+            name: '',
+            image: '',
+            description: '',
             price: 10,
         }
         this.handleChange = this.handleChange.bind(this);

@@ -11,6 +11,7 @@ from .permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework import generics
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 @api_view(['GET'])
@@ -133,6 +134,7 @@ class ProductDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    parser_classes = [MultiPartParser, FormParser]
 
 class Reviews(APIView):
 
