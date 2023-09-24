@@ -62,7 +62,9 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates/',],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'frontend/dist'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,8 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'api.CustomUser'
-CSRF_COOKIE_DOMAIN = "http://localhost:5173"
-SESSION_COOKIE_DOMAIN = "http://localhost:5173"
+# CSRF_COOKIE_DOMAIN = "http://localhost:5173"
+# SESSION_COOKIE_DOMAIN = "http://localhost:5173"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -132,7 +134,7 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'frontend/dist/assets'),
 )
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
