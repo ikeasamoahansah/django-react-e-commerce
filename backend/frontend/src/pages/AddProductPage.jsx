@@ -33,7 +33,7 @@ export default class AddProductPage extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const {authTokens, user} = this.context;
+        const {authTokens} = this.context;
 
         // const postData = {
         //     user: authTokens.access,
@@ -44,7 +44,7 @@ export default class AddProductPage extends Component {
         // };
 
         let formData = new FormData()
-        formData.append("user", JSON.stringify(user));
+        formData.append("user", request.user);
         formData.append("name", this.state.name);
         formData.append("image", this.state.image);
         formData.append("description", this.state.description);
